@@ -1,0 +1,16 @@
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v4
+      - uses: DeterminateSystems/magic-nix-cache-action@v2
+      - run: nix run github:typst/typst compile src/main.typ build/paper.pdf
+      - uses: actions/upload-artifact@v3
+        with:
+          name: paper
+          path: build/paper.pdf
