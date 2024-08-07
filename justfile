@@ -5,7 +5,7 @@ build_dir:
     mkdir -p build
 
 build: build_dir
-    typst compile src/main.typ build/paper.pdf
+    typst compile src/main.typ build/thesis.pdf
 
 watch: build_dir
-    typst watch src/main.typ build/paper.pdf
+    typst watch src/main.typ build/thesis.pdf

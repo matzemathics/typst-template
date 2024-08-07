@@ -1,22 +1,28 @@
 #import "template.typ": *
+#import "common.typ": *
+#show: thmrules
 
 #show: project.with(
-  title: "Typst template document",
-  authors: (
-    (name: "Matthias Meißner", email: "matthias.meissner2@mailbox.tu-dresden.de"),
+  title: "The title of this Thesis", 
+  short: "Short Title",
+  author: (
+    name: "Your Name",
+    email: "your@mailbox.com",
+    born: (
+      where: "Somewhere",
+      when: datetime.today(),
+    ),
   ),
+  supervisor: "Supervisor Name"
 )
 
-= Introduction
-#lorem(60)
+// #show emph: it => {text(weight: "bold", it)}
 
-== In this paper
-#lorem(20)
+#include "01_intro.typ"
+#include "02_background.typ"
+#include "03_topic.typ"
+#include "04_implementation.typ"
+#include "05_discussion.typ"
+#include "06_conclusion.typ"
 
-=== Contributions
-#lorem(40)
-
-= Related Work
-#lorem(500)
-
-#bibliography("references.bib")
+#bibliography("references.bib", style: "association-for-computing-machinery")
